@@ -1,0 +1,51 @@
+Building WEEK1/best-time-to-buy-and-sell-stock.cpp
+-- The C compiler identification is GNU 11.4.0
+-- The CXX compiler identification is GNU 11.4.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Found GTest: /usr/lib/x86_64-linux-gnu/cmake/GTest/GTestConfig.cmake (found version "1.11.0")
+-- Running cmake on WEEK1/best-time-to-buy-and-sell-stock.cpp
+-- Configuring done (1.9s)
+-- Generating done (0.0s)
+-- Build files have been written to: /home/runner/work/weekly-DSA/weekly-DSA/out/build
+CMake configuration Passed.
+make: Entering directory '/home/runner/work/weekly-DSA/weekly-DSA/out/build'
+make[1]: Entering directory '/home/runner/work/weekly-DSA/weekly-DSA/out/build'
+make[2]: Entering directory '/home/runner/work/weekly-DSA/weekly-DSA/out/build'
+make[2]: Leaving directory '/home/runner/work/weekly-DSA/weekly-DSA/out/build'
+make[2]: Entering directory '/home/runner/work/weekly-DSA/weekly-DSA/out/build'
+[ 50%] Building CXX object CMakeFiles/learn.dir/WEEK1/best-time-to-buy-and-sell-stock.cpp.o
+[100%] Linking CXX executable learn
+make[2]: Leaving directory '/home/runner/work/weekly-DSA/weekly-DSA/out/build'
+[100%] Built target learn
+make[1]: Leaving directory '/home/runner/work/weekly-DSA/weekly-DSA/out/build'
+make: Leaving directory '/home/runner/work/weekly-DSA/weekly-DSA/out/build'
+Make Passed.
+[==========] Running 6 tests from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 6 tests from BestTimeToBuyAndSellStockTest
+[ RUN      ] BestTimeToBuyAndSellStockTest.HandlesEmptyPrices
+[       OK ] BestTimeToBuyAndSellStockTest.HandlesEmptyPrices (0 ms)
+[ RUN      ] BestTimeToBuyAndSellStockTest.HandlesSinglePrice
+[       OK ] BestTimeToBuyAndSellStockTest.HandlesSinglePrice (0 ms)
+[ RUN      ] BestTimeToBuyAndSellStockTest.HandlesIncreasingPrices
+[       OK ] BestTimeToBuyAndSellStockTest.HandlesIncreasingPrices (0 ms)
+[ RUN      ] BestTimeToBuyAndSellStockTest.HandlesDecreasingPrices
+[       OK ] BestTimeToBuyAndSellStockTest.HandlesDecreasingPrices (0 ms)
+[ RUN      ] BestTimeToBuyAndSellStockTest.HandlesMixedPrices
+[       OK ] BestTimeToBuyAndSellStockTest.HandlesMixedPrices (0 ms)
+[ RUN      ] BestTimeToBuyAndSellStockTest.HandlesMultipleProfits
+[       OK ] BestTimeToBuyAndSellStockTest.HandlesMultipleProfits (0 ms)
+[----------] 6 tests from BestTimeToBuyAndSellStockTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 6 tests from 1 test suite ran. (0 ms total)
+[  PASSED  ] 6 tests.

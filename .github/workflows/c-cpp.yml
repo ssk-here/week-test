@@ -24,7 +24,7 @@ jobs:
         name: application-output
         path: output.txt
 
-    - name: Commit the output back to the repo (Alternative to release)
+    - name: Commit the output back to the repo (write permissions to github actions required)
       if: github.event_name == 'push' && github.ref == 'refs/heads/main' # Only on pushes to main
       run: |
         git config --global user.email "actions@github.com"

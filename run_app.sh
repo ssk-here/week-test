@@ -1,6 +1,11 @@
 #!/bin/bash
 
 BUILD_DIR="out/build"
+
+rm -rf $BUILD_DIR
+
+mkdir -p $BUILD_DIR
+
 CPPFILE=$1
 
 if [ -z "$CPPFILE" ]; then

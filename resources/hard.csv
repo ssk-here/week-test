@@ -1,0 +1,17 @@
+LeetCode No,Problem Title,Level,Tags,Acceptance,URL
+23, Merge k Sorted Lists,Hard,Linked ListDivide and Conquer2+,47.3,https://leetcode.com/problems/merge-k-sorted-lists
+25, Reverse Nodes in k-Group,Hard,Linked ListRecursion,51.5,https://leetcode.com/problems/reverse-nodes-in-k-group
+32, Longest Valid Parentheses,Hard,StringDynamic ProgrammingStack,32.3,https://leetcode.com/problems/longest-valid-parentheses
+41, First Missing Positive,Hard,ArrayHash Table,36.1,https://leetcode.com/problems/first-missing-positive
+124, Binary Tree Maximum Path Sum,Hard,Dynamic ProgrammingTree2+,37.8,https://leetcode.com/problems/binary-tree-maximum-path-sum
+127, Word Ladder,Hard,Hash TableStringBreadth-First Search,35.7,https://leetcode.com/problems/word-ladder
+135, Candy,Hard,ArrayGreedy,37.3,https://leetcode.com/problems/candy
+224, Basic Calculator,Hard,MathStringStack1+,40.7,https://leetcode.com/problems/basic-calculator
+239, Sliding Window Maximum,Hard,ArrayQueueSliding Window2+,46.3,https://leetcode.com/problems/sliding-window-maximum
+354, Russian Doll Envelopes,Hard,ArrayBinary Search2+,38.8,https://leetcode.com/problems/russian-doll-envelopes
+745, Prefix and Suffix Search,Hard,StringDesignTrie,36.6,https://leetcode.com/problems/prefix-and-suffix-search
+773, Sliding Puzzle,Hard,ArrayBreadth-First SearchMatrix,63.3,https://leetcode.com/problems/sliding-puzzle
+1220, Count Vowels Permutation,Hard,Dynamic Programming,56.2,https://leetcode.com/problems/count-vowels-permutation
+1335, Minimum Difficulty of a Job Schedule,Hard,ArrayDynamic Programming,56.3,https://leetcode.com/problems/minimum-difficulty-of-a-job-schedule
+1770, Maximum Score from Performing Multiplication Operations,Hard,ArrayDynamic Programming,35.7,https://leetcode.com/problems/maximum-score-from-performing-multiplication-operations
+2416,Sum of Prefix Scores of Strings,Hard,Trie,1,https://leetcode.com/problems/sum-of-prefix-scores-of-strings

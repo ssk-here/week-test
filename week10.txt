@@ -1,0 +1,16 @@
+~WEEK10
+https://leetcode.com/problems/subarray-product-less-than-k
+https://leetcode.com/problems/sort-colors
+https://leetcode.com/problems/container-with-most-water
+https://leetcode.com/problems/longest-word-in-dictionary
+https://leetcode.com/problems/maximum-xor-of-two-numbers-in-an-array
+https://leetcode.com/problems/factor-combinations
+https://leetcode.com/problems/split-a-string-into-the-max-number-of-unique-substrings
+https://leetcode.com/problems/maximum-number-of-vowels-in-a-substring-of-given-length
+https://leetcode.com/problems/max-consecutive-ones-iii
+https://leetcode.com/problems/longest-subarray-of-1s-after-deleting-one-element
+https://leetcode.com/problems/first-missing-positive
+https://leetcode.com/problems/sudoku-solver
+https://leetcode.com/problems/n-queens
+https://leetcode.com/problems/reverse-nodes-in-k-group
+https://leetcode.com/problems/merge-k-sorted-lists

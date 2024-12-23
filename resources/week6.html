@@ -1,0 +1,621 @@
+<div><style> @page { size: letter portrait; margin: 2cm; }
+ * { word-wrap: break-word; } pre { white-space: pre-wrap; } </style><div><h1>WEEK6</h1></div><p style="page-break-before: always" ></p><div><h2>Contents</h2></div><br /><div><h3>1. Reorder List - Medium</h3></div><div><h3>2. Clone Graph - Medium</h3></div><div><h3>3. Pacific Atlantic Water Flow - Medium</h3></div><div><h3>4. Number of Islands - Medium</h3></div><div><h3>5. Reverse Linked List II - Medium</h3></div><div><h3>6. Rotate List - Medium</h3></div><div><h3>7. Swap Nodes in Pairs - Medium</h3></div><div><h3>8. Odd Even Linked List - Medium</h3></div><div><h3>9. Kth Smallest Element in a Sorted Matrix - Medium</h3></div><div><h3>10. Find K Pairs with Smallest Sums - Medium</h3></div><div><h3>11. Merge Intervals - Medium</h3></div><div><h3>12. Interval List Intersections - Medium</h3></div><div><h3>13. Non-overlapping Intervals - Medium</h3></div><p style="page-break-before: always" ></p><div><h2>Reorder List</h2><p>You are given the head of a singly linked-list. The list can be represented as:</p>
+
+<pre>
+L<sub>0</sub> &rarr; L<sub>1</sub> &rarr; &hellip; &rarr; L<sub>n - 1</sub> &rarr; L<sub>n</sub>
+</pre>
+
+<p><em>Reorder the list to be on the following form:</em></p>
+
+<pre>
+L<sub>0</sub> &rarr; L<sub>n</sub> &rarr; L<sub>1</sub> &rarr; L<sub>n - 1</sub> &rarr; L<sub>2</sub> &rarr; L<sub>n - 2</sub> &rarr; &hellip;
+</pre>
+
+<p>You may not modify the values in the list&#39;s nodes. Only nodes themselves may be changed.</p>
+
+<p>&nbsp;</p>
+<p><strong class="example">Example 1:</strong></p>
+<img alt="" src="https://assets.leetcode.com/uploads/2021/03/04/reorder1linked-list.jpg" style="width: 422px; height: 222px;" />
+<pre>
+<strong>Input:</strong> head = [1,2,3,4]
+<strong>Output:</strong> [1,4,2,3]
+</pre>
+
+<p><strong class="example">Example 2:</strong></p>
+<img alt="" src="https://assets.leetcode.com/uploads/2021/03/09/reorder2-linked-list.jpg" style="width: 542px; height: 222px;" />
+<pre>
+<strong>Input:</strong> head = [1,2,3,4,5]
+<strong>Output:</strong> [1,5,2,4,3]
+</pre>
+
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
+
+<ul>
+	<li>The number of nodes in the list is in the range <code>[1, 5 * 10<sup>4</sup>]</code>.</li>
+	<li><code>1 &lt;= Node.val &lt;= 1000</code></li>
+</ul>
+</div><div>/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */
+class Solution {
+public:
+    void reorderList(ListNode* head) {
+        
+    }
+};</div><p style="page-break-before: always" ></p><div><h2>Clone Graph</h2><p>Given a reference of a node in a <strong><a href="https://en.wikipedia.org/wiki/Connectivity_(graph_theory)#Connected_graph" target="_blank">connected</a></strong> undirected graph.</p>
+
+<p>Return a <a href="https://en.wikipedia.org/wiki/Object_copying#Deep_copy" target="_blank"><strong>deep copy</strong></a> (clone) of the graph.</p>
+
+<p>Each node in the graph contains a value (<code>int</code>) and a list (<code>List[Node]</code>) of its neighbors.</p>
+
+<pre>
+class Node {
+    public int val;
+    public List&lt;Node&gt; neighbors;
+}
+</pre>
+
+<p>&nbsp;</p>
+
+<p><strong>Test case format:</strong></p>
+
+<p>For simplicity, each node&#39;s value is the same as the node&#39;s index (1-indexed). For example, the first node with <code>val == 1</code>, the second node with <code>val == 2</code>, and so on. The graph is represented in the test case using an adjacency list.</p>
+
+<p><b>An adjacency list</b> is a collection of unordered <b>lists</b> used to represent a finite graph. Each list describes the set of neighbors of a node in the graph.</p>
+
+<p>The given node will always be the first node with <code>val = 1</code>. You must return the <strong>copy of the given node</strong> as a reference to the cloned graph.</p>
+
+<p>&nbsp;</p>
+<p><strong class="example">Example 1:</strong></p>
+<img alt="" src="https://assets.leetcode.com/uploads/2019/11/04/133_clone_graph_question.png" style="width: 454px; height: 500px;" />
+<pre>
+<strong>Input:</strong> adjList = [[2,4],[1,3],[2,4],[1,3]]
+<strong>Output:</strong> [[2,4],[1,3],[2,4],[1,3]]
+<strong>Explanation:</strong> There are 4 nodes in the graph.
+1st node (val = 1)&#39;s neighbors are 2nd node (val = 2) and 4th node (val = 4).
+2nd node (val = 2)&#39;s neighbors are 1st node (val = 1) and 3rd node (val = 3).
+3rd node (val = 3)&#39;s neighbors are 2nd node (val = 2) and 4th node (val = 4).
+4th node (val = 4)&#39;s neighbors are 1st node (val = 1) and 3rd node (val = 3).
+</pre>
+
+<p><strong class="example">Example 2:</strong></p>
+<img alt="" src="https://assets.leetcode.com/uploads/2020/01/07/graph.png" style="width: 163px; height: 148px;" />
+<pre>
+<strong>Input:</strong> adjList = [[]]
+<strong>Output:</strong> [[]]
+<strong>Explanation:</strong> Note that the input contains one empty list. The graph consists of only one node with val = 1 and it does not have any neighbors.
+</pre>
+
+<p><strong class="example">Example 3:</strong></p>
+
+<pre>
+<strong>Input:</strong> adjList = []
+<strong>Output:</strong> []
+<strong>Explanation:</strong> This an empty graph, it does not have any nodes.
+</pre>
+
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
+
+<ul>
+	<li>The number of nodes in the graph is in the range <code>[0, 100]</code>.</li>
+	<li><code>1 &lt;= Node.val &lt;= 100</code></li>
+	<li><code>Node.val</code> is unique for each node.</li>
+	<li>There are no repeated edges and no self-loops in the graph.</li>
+	<li>The Graph is connected and all nodes can be visited starting from the given node.</li>
+</ul>
+</div><div>/*
+// Definition for a Node.
+class Node {
+public:
+    int val;
+    vector<Node*> neighbors;
+    Node() {
+        val = 0;
+        neighbors = vector<Node*>();
+    }
+    Node(int _val) {
+        val = _val;
+        neighbors = vector<Node*>();
+    }
+    Node(int _val, vector<Node*> _neighbors) {
+        val = _val;
+        neighbors = _neighbors;
+    }
+};
+*/
+
+class Solution {
+public:
+    Node* cloneGraph(Node* node) {
+        
+    }
+};</div><p style="page-break-before: always" ></p><div><h2>Pacific Atlantic Water Flow</h2><p>There is an <code>m x n</code> rectangular island that borders both the <strong>Pacific Ocean</strong> and <strong>Atlantic Ocean</strong>. The <strong>Pacific Ocean</strong> touches the island&#39;s left and top edges, and the <strong>Atlantic Ocean</strong> touches the island&#39;s right and bottom edges.</p>
+
+<p>The island is partitioned into a grid of square cells. You are given an <code>m x n</code> integer matrix <code>heights</code> where <code>heights[r][c]</code> represents the <strong>height above sea level</strong> of the cell at coordinate <code>(r, c)</code>.</p>
+
+<p>The island receives a lot of rain, and the rain water can flow to neighboring cells directly north, south, east, and west if the neighboring cell&#39;s height is <strong>less than or equal to</strong> the current cell&#39;s height. Water can flow from any cell adjacent to an ocean into the ocean.</p>
+
+<p>Return <em>a <strong>2D list</strong> of grid coordinates </em><code>result</code><em> where </em><code>result[i] = [r<sub>i</sub>, c<sub>i</sub>]</code><em> denotes that rain water can flow from cell </em><code>(r<sub>i</sub>, c<sub>i</sub>)</code><em> to <strong>both</strong> the Pacific and Atlantic oceans</em>.</p>
+
+<p>&nbsp;</p>
+<p><strong class="example">Example 1:</strong></p>
+<img alt="" src="https://assets.leetcode.com/uploads/2021/06/08/waterflow-grid.jpg" style="width: 400px; height: 400px;" />
+<pre>
+<strong>Input:</strong> heights = [[1,2,2,3,5],[3,2,3,4,4],[2,4,5,3,1],[6,7,1,4,5],[5,1,1,2,4]]
+<strong>Output:</strong> [[0,4],[1,3],[1,4],[2,2],[3,0],[3,1],[4,0]]
+<strong>Explanation:</strong> The following cells can flow to the Pacific and Atlantic oceans, as shown below:
+[0,4]: [0,4] -&gt; Pacific Ocean 
+&nbsp;      [0,4] -&gt; Atlantic Ocean
+[1,3]: [1,3] -&gt; [0,3] -&gt; Pacific Ocean 
+&nbsp;      [1,3] -&gt; [1,4] -&gt; Atlantic Ocean
+[1,4]: [1,4] -&gt; [1,3] -&gt; [0,3] -&gt; Pacific Ocean 
+&nbsp;      [1,4] -&gt; Atlantic Ocean
+[2,2]: [2,2] -&gt; [1,2] -&gt; [0,2] -&gt; Pacific Ocean 
+&nbsp;      [2,2] -&gt; [2,3] -&gt; [2,4] -&gt; Atlantic Ocean
+[3,0]: [3,0] -&gt; Pacific Ocean 
+&nbsp;      [3,0] -&gt; [4,0] -&gt; Atlantic Ocean
+[3,1]: [3,1] -&gt; [3,0] -&gt; Pacific Ocean 
+&nbsp;      [3,1] -&gt; [4,1] -&gt; Atlantic Ocean
+[4,0]: [4,0] -&gt; Pacific Ocean 
+       [4,0] -&gt; Atlantic Ocean
+Note that there are other possible paths for these cells to flow to the Pacific and Atlantic oceans.
+</pre>
+
+<p><strong class="example">Example 2:</strong></p>
+
+<pre>
+<strong>Input:</strong> heights = [[1]]
+<strong>Output:</strong> [[0,0]]
+<strong>Explanation:</strong> The water can flow from the only cell to the Pacific and Atlantic oceans.
+</pre>
+
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
+
+<ul>
+	<li><code>m == heights.length</code></li>
+	<li><code>n == heights[r].length</code></li>
+	<li><code>1 &lt;= m, n &lt;= 200</code></li>
+	<li><code>0 &lt;= heights[r][c] &lt;= 10<sup>5</sup></code></li>
+</ul>
+</div><div>class Solution {
+public:
+    vector<vector<int>> pacificAtlantic(vector<vector<int>>& heights) {
+        
+    }
+};</div><p style="page-break-before: always" ></p><div><h2>Number of Islands</h2><p>Given an <code>m x n</code> 2D binary grid <code>grid</code> which represents a map of <code>&#39;1&#39;</code>s (land) and <code>&#39;0&#39;</code>s (water), return <em>the number of islands</em>.</p>
+
+<p>An <strong>island</strong> is surrounded by water and is formed by connecting adjacent lands horizontally or vertically. You may assume all four edges of the grid are all surrounded by water.</p>
+
+<p>&nbsp;</p>
+<p><strong class="example">Example 1:</strong></p>
+
+<pre>
+<strong>Input:</strong> grid = [
+  [&quot;1&quot;,&quot;1&quot;,&quot;1&quot;,&quot;1&quot;,&quot;0&quot;],
+  [&quot;1&quot;,&quot;1&quot;,&quot;0&quot;,&quot;1&quot;,&quot;0&quot;],
+  [&quot;1&quot;,&quot;1&quot;,&quot;0&quot;,&quot;0&quot;,&quot;0&quot;],
+  [&quot;0&quot;,&quot;0&quot;,&quot;0&quot;,&quot;0&quot;,&quot;0&quot;]
+]
+<strong>Output:</strong> 1
+</pre>
+
+<p><strong class="example">Example 2:</strong></p>
+
+<pre>
+<strong>Input:</strong> grid = [
+  [&quot;1&quot;,&quot;1&quot;,&quot;0&quot;,&quot;0&quot;,&quot;0&quot;],
+  [&quot;1&quot;,&quot;1&quot;,&quot;0&quot;,&quot;0&quot;,&quot;0&quot;],
+  [&quot;0&quot;,&quot;0&quot;,&quot;1&quot;,&quot;0&quot;,&quot;0&quot;],
+  [&quot;0&quot;,&quot;0&quot;,&quot;0&quot;,&quot;1&quot;,&quot;1&quot;]
+]
+<strong>Output:</strong> 3
+</pre>
+
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
+
+<ul>
+	<li><code>m == grid.length</code></li>
+	<li><code>n == grid[i].length</code></li>
+	<li><code>1 &lt;= m, n &lt;= 300</code></li>
+	<li><code>grid[i][j]</code> is <code>&#39;0&#39;</code> or <code>&#39;1&#39;</code>.</li>
+</ul>
+</div><div>class Solution {
+public:
+    int numIslands(vector<vector<char>>& grid) {
+        
+    }
+};</div><p style="page-break-before: always" ></p><div><h2>Reverse Linked List II</h2><p>Given the <code>head</code> of a singly linked list and two integers <code>left</code> and <code>right</code> where <code>left &lt;= right</code>, reverse the nodes of the list from position <code>left</code> to position <code>right</code>, and return <em>the reversed list</em>.</p>
+
+<p>&nbsp;</p>
+<p><strong class="example">Example 1:</strong></p>
+<img alt="" src="https://assets.leetcode.com/uploads/2021/02/19/rev2ex2.jpg" style="width: 542px; height: 222px;" />
+<pre>
+<strong>Input:</strong> head = [1,2,3,4,5], left = 2, right = 4
+<strong>Output:</strong> [1,4,3,2,5]
+</pre>
+
+<p><strong class="example">Example 2:</strong></p>
+
+<pre>
+<strong>Input:</strong> head = [5], left = 1, right = 1
+<strong>Output:</strong> [5]
+</pre>
+
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
+
+<ul>
+	<li>The number of nodes in the list is <code>n</code>.</li>
+	<li><code>1 &lt;= n &lt;= 500</code></li>
+	<li><code>-500 &lt;= Node.val &lt;= 500</code></li>
+	<li><code>1 &lt;= left &lt;= right &lt;= n</code></li>
+</ul>
+
+<p>&nbsp;</p>
+<strong>Follow up:</strong> Could you do it in one pass?</div><div>/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */
+class Solution {
+public:
+    ListNode* reverseBetween(ListNode* head, int left, int right) {
+        
+    }
+};</div><p style="page-break-before: always" ></p><div><h2>Rotate List</h2><p>Given the <code>head</code> of a linked&nbsp;list, rotate the list to the right by <code>k</code> places.</p>
+
+<p>&nbsp;</p>
+<p><strong class="example">Example 1:</strong></p>
+<img alt="" src="https://assets.leetcode.com/uploads/2020/11/13/rotate1.jpg" style="width: 450px; height: 191px;" />
+<pre>
+<strong>Input:</strong> head = [1,2,3,4,5], k = 2
+<strong>Output:</strong> [4,5,1,2,3]
+</pre>
+
+<p><strong class="example">Example 2:</strong></p>
+<img alt="" src="https://assets.leetcode.com/uploads/2020/11/13/roate2.jpg" style="width: 305px; height: 350px;" />
+<pre>
+<strong>Input:</strong> head = [0,1,2], k = 4
+<strong>Output:</strong> [2,0,1]
+</pre>
+
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
+
+<ul>
+	<li>The number of nodes in the list is in the range <code>[0, 500]</code>.</li>
+	<li><code>-100 &lt;= Node.val &lt;= 100</code></li>
+	<li><code>0 &lt;= k &lt;= 2 * 10<sup>9</sup></code></li>
+</ul>
+</div><div>/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */
+class Solution {
+public:
+    ListNode* rotateRight(ListNode* head, int k) {
+        
+    }
+};</div><p style="page-break-before: always" ></p><div><h2>Swap Nodes in Pairs</h2><p>Given a&nbsp;linked list, swap every two adjacent nodes and return its head. You must solve the problem without&nbsp;modifying the values in the list&#39;s nodes (i.e., only nodes themselves may be changed.)</p>
+
+<p>&nbsp;</p>
+<p><strong class="example">Example 1:</strong></p>
+
+<div class="example-block">
+<p><strong>Input:</strong> <span class="example-io">head = [1,2,3,4]</span></p>
+
+<p><strong>Output:</strong> <span class="example-io">[2,1,4,3]</span></p>
+
+<p><strong>Explanation:</strong></p>
+
+<p><img alt="" src="https://assets.leetcode.com/uploads/2020/10/03/swap_ex1.jpg" style="width: 422px; height: 222px;" /></p>
+</div>
+
+<p><strong class="example">Example 2:</strong></p>
+
+<div class="example-block">
+<p><strong>Input:</strong> <span class="example-io">head = []</span></p>
+
+<p><strong>Output:</strong> <span class="example-io">[]</span></p>
+</div>
+
+<p><strong class="example">Example 3:</strong></p>
+
+<div class="example-block">
+<p><strong>Input:</strong> <span class="example-io">head = [1]</span></p>
+
+<p><strong>Output:</strong> <span class="example-io">[1]</span></p>
+</div>
+
+<p><strong class="example">Example 4:</strong></p>
+
+<div class="example-block">
+<p><strong>Input:</strong> <span class="example-io">head = [1,2,3]</span></p>
+
+<p><strong>Output:</strong> <span class="example-io">[2,1,3]</span></p>
+</div>
+
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
+
+<ul>
+	<li>The number of nodes in the&nbsp;list&nbsp;is in the range <code>[0, 100]</code>.</li>
+	<li><code>0 &lt;= Node.val &lt;= 100</code></li>
+</ul>
+</div><div>/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */
+class Solution {
+public:
+    ListNode* swapPairs(ListNode* head) {
+        
+    }
+};</div><p style="page-break-before: always" ></p><div><h2>Odd Even Linked List</h2><p>Given the <code>head</code> of a singly linked list, group all the nodes with odd indices together followed by the nodes with even indices, and return <em>the reordered list</em>.</p>
+
+<p>The <strong>first</strong> node is considered <strong>odd</strong>, and the <strong>second</strong> node is <strong>even</strong>, and so on.</p>
+
+<p>Note that the relative order inside both the even and odd groups should remain as it was in the input.</p>
+
+<p>You must solve the problem&nbsp;in <code>O(1)</code>&nbsp;extra space complexity and <code>O(n)</code> time complexity.</p>
+
+<p>&nbsp;</p>
+<p><strong class="example">Example 1:</strong></p>
+<img alt="" src="https://assets.leetcode.com/uploads/2021/03/10/oddeven-linked-list.jpg" style="width: 300px; height: 123px;" />
+<pre>
+<strong>Input:</strong> head = [1,2,3,4,5]
+<strong>Output:</strong> [1,3,5,2,4]
+</pre>
+
+<p><strong class="example">Example 2:</strong></p>
+<img alt="" src="https://assets.leetcode.com/uploads/2021/03/10/oddeven2-linked-list.jpg" style="width: 500px; height: 142px;" />
+<pre>
+<strong>Input:</strong> head = [2,1,3,5,6,4,7]
+<strong>Output:</strong> [2,3,6,7,1,5,4]
+</pre>
+
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
+
+<ul>
+	<li>The number of nodes in the linked list is in the range <code>[0, 10<sup>4</sup>]</code>.</li>
+	<li><code>-10<sup>6</sup> &lt;= Node.val &lt;= 10<sup>6</sup></code></li>
+</ul>
+</div><div>/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */
+class Solution {
+public:
+    ListNode* oddEvenList(ListNode* head) {
+        
+    }
+};</div><p style="page-break-before: always" ></p><div><h2>Kth Smallest Element in a Sorted Matrix</h2><p>Given an <code>n x n</code> <code>matrix</code> where each of the rows and columns is sorted in ascending order, return <em>the</em> <code>k<sup>th</sup></code> <em>smallest element in the matrix</em>.</p>
+
+<p>Note that it is the <code>k<sup>th</sup></code> smallest element <strong>in the sorted order</strong>, not the <code>k<sup>th</sup></code> <strong>distinct</strong> element.</p>
+
+<p>You must find a solution with a memory complexity better than <code>O(n<sup>2</sup>)</code>.</p>
+
+<p>&nbsp;</p>
+<p><strong class="example">Example 1:</strong></p>
+
+<pre>
+<strong>Input:</strong> matrix = [[1,5,9],[10,11,13],[12,13,15]], k = 8
+<strong>Output:</strong> 13
+<strong>Explanation:</strong> The elements in the matrix are [1,5,9,10,11,12,13,<u><strong>13</strong></u>,15], and the 8<sup>th</sup> smallest number is 13
+</pre>
+
+<p><strong class="example">Example 2:</strong></p>
+
+<pre>
+<strong>Input:</strong> matrix = [[-5]], k = 1
+<strong>Output:</strong> -5
+</pre>
+
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
+
+<ul>
+	<li><code>n == matrix.length == matrix[i].length</code></li>
+	<li><code>1 &lt;= n &lt;= 300</code></li>
+	<li><code>-10<sup>9</sup> &lt;= matrix[i][j] &lt;= 10<sup>9</sup></code></li>
+	<li>All the rows and columns of <code>matrix</code> are <strong>guaranteed</strong> to be sorted in <strong>non-decreasing order</strong>.</li>
+	<li><code>1 &lt;= k &lt;= n<sup>2</sup></code></li>
+</ul>
+
+<p>&nbsp;</p>
+<p><strong>Follow up:</strong></p>
+
+<ul>
+	<li>Could you solve the problem with a constant memory (i.e., <code>O(1)</code> memory complexity)?</li>
+	<li>Could you solve the problem in <code>O(n)</code> time complexity? The solution may be too advanced for an interview but you may find reading <a href="http://www.cse.yorku.ca/~andy/pubs/X+Y.pdf" target="_blank">this paper</a> fun.</li>
+</ul>
+</div><div>class Solution {
+public:
+    int kthSmallest(vector<vector<int>>& matrix, int k) {
+        
+    }
+};</div><p style="page-break-before: always" ></p><div><h2>Find K Pairs with Smallest Sums</h2><p>You are given two integer arrays <code>nums1</code> and <code>nums2</code> sorted in <strong>non-decreasing&nbsp;order</strong> and an integer <code>k</code>.</p>
+
+<p>Define a pair <code>(u, v)</code> which consists of one element from the first array and one element from the second array.</p>
+
+<p>Return <em>the</em> <code>k</code> <em>pairs</em> <code>(u<sub>1</sub>, v<sub>1</sub>), (u<sub>2</sub>, v<sub>2</sub>), ..., (u<sub>k</sub>, v<sub>k</sub>)</code> <em>with the smallest sums</em>.</p>
+
+<p>&nbsp;</p>
+<p><strong class="example">Example 1:</strong></p>
+
+<pre>
+<strong>Input:</strong> nums1 = [1,7,11], nums2 = [2,4,6], k = 3
+<strong>Output:</strong> [[1,2],[1,4],[1,6]]
+<strong>Explanation:</strong> The first 3 pairs are returned from the sequence: [1,2],[1,4],[1,6],[7,2],[7,4],[11,2],[7,6],[11,4],[11,6]
+</pre>
+
+<p><strong class="example">Example 2:</strong></p>
+
+<pre>
+<strong>Input:</strong> nums1 = [1,1,2], nums2 = [1,2,3], k = 2
+<strong>Output:</strong> [[1,1],[1,1]]
+<strong>Explanation:</strong> The first 2 pairs are returned from the sequence: [1,1],[1,1],[1,2],[2,1],[1,2],[2,2],[1,3],[1,3],[2,3]
+</pre>
+
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
+
+<ul>
+	<li><code>1 &lt;= nums1.length, nums2.length &lt;= 10<sup>5</sup></code></li>
+	<li><code>-10<sup>9</sup> &lt;= nums1[i], nums2[i] &lt;= 10<sup>9</sup></code></li>
+	<li><code>nums1</code> and <code>nums2</code> both are sorted in <strong>non-decreasing order</strong>.</li>
+	<li><code>1 &lt;= k &lt;= 10<sup>4</sup></code></li>
+	<li><code>k &lt;=&nbsp;nums1.length *&nbsp;nums2.length</code></li>
+</ul>
+</div><div>class Solution {
+public:
+    vector<vector<int>> kSmallestPairs(vector<int>& nums1, vector<int>& nums2, int k) {
+        
+    }
+};</div><p style="page-break-before: always" ></p><div><h2>Merge Intervals</h2><p>Given an array&nbsp;of <code>intervals</code>&nbsp;where <code>intervals[i] = [start<sub>i</sub>, end<sub>i</sub>]</code>, merge all overlapping intervals, and return <em>an array of the non-overlapping intervals that cover all the intervals in the input</em>.</p>
+
+<p>&nbsp;</p>
+<p><strong class="example">Example 1:</strong></p>
+
+<pre>
+<strong>Input:</strong> intervals = [[1,3],[2,6],[8,10],[15,18]]
+<strong>Output:</strong> [[1,6],[8,10],[15,18]]
+<strong>Explanation:</strong> Since intervals [1,3] and [2,6] overlap, merge them into [1,6].
+</pre>
+
+<p><strong class="example">Example 2:</strong></p>
+
+<pre>
+<strong>Input:</strong> intervals = [[1,4],[4,5]]
+<strong>Output:</strong> [[1,5]]
+<strong>Explanation:</strong> Intervals [1,4] and [4,5] are considered overlapping.
+</pre>
+
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
+
+<ul>
+	<li><code>1 &lt;= intervals.length &lt;= 10<sup>4</sup></code></li>
+	<li><code>intervals[i].length == 2</code></li>
+	<li><code>0 &lt;= start<sub>i</sub> &lt;= end<sub>i</sub> &lt;= 10<sup>4</sup></code></li>
+</ul>
+</div><div>class Solution {
+public:
+    vector<vector<int>> merge(vector<vector<int>>& intervals) {
+        
+    }
+};</div><p style="page-break-before: always" ></p><div><h2>Interval List Intersections</h2><p>You are given two lists of closed intervals, <code>firstList</code> and <code>secondList</code>, where <code>firstList[i] = [start<sub>i</sub>, end<sub>i</sub>]</code> and <code>secondList[j] = [start<sub>j</sub>, end<sub>j</sub>]</code>. Each list of intervals is pairwise <strong>disjoint</strong> and in <strong>sorted order</strong>.</p>
+
+<p>Return <em>the intersection of these two interval lists</em>.</p>
+
+<p>A <strong>closed interval</strong> <code>[a, b]</code> (with <code>a &lt;= b</code>) denotes the set of real numbers <code>x</code> with <code>a &lt;= x &lt;= b</code>.</p>
+
+<p>The <strong>intersection</strong> of two closed intervals is a set of real numbers that are either empty or represented as a closed interval. For example, the intersection of <code>[1, 3]</code> and <code>[2, 4]</code> is <code>[2, 3]</code>.</p>
+
+<p>&nbsp;</p>
+<p><strong class="example">Example 1:</strong></p>
+<img alt="" src="https://assets.leetcode.com/uploads/2019/01/30/interval1.png" style="width: 700px; height: 194px;" />
+<pre>
+<strong>Input:</strong> firstList = [[0,2],[5,10],[13,23],[24,25]], secondList = [[1,5],[8,12],[15,24],[25,26]]
+<strong>Output:</strong> [[1,2],[5,5],[8,10],[15,23],[24,24],[25,25]]
+</pre>
+
+<p><strong class="example">Example 2:</strong></p>
+
+<pre>
+<strong>Input:</strong> firstList = [[1,3],[5,9]], secondList = []
+<strong>Output:</strong> []
+</pre>
+
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
+
+<ul>
+	<li><code>0 &lt;= firstList.length, secondList.length &lt;= 1000</code></li>
+	<li><code>firstList.length + secondList.length &gt;= 1</code></li>
+	<li><code>0 &lt;= start<sub>i</sub> &lt; end<sub>i</sub> &lt;= 10<sup>9</sup></code></li>
+	<li><code>end<sub>i</sub> &lt; start<sub>i+1</sub></code></li>
+	<li><code>0 &lt;= start<sub>j</sub> &lt; end<sub>j</sub> &lt;= 10<sup>9</sup> </code></li>
+	<li><code>end<sub>j</sub> &lt; start<sub>j+1</sub></code></li>
+</ul>
+</div><div>class Solution {
+public:
+    vector<vector<int>> intervalIntersection(vector<vector<int>>& firstList, vector<vector<int>>& secondList) {
+        
+    }
+};</div><p style="page-break-before: always" ></p><div><h2>Non-overlapping Intervals</h2><p>Given an array of intervals <code>intervals</code> where <code>intervals[i] = [start<sub>i</sub>, end<sub>i</sub>]</code>, return <em>the minimum number of intervals you need to remove to make the rest of the intervals non-overlapping</em>.</p>
+
+<p>&nbsp;</p>
+<p><strong class="example">Example 1:</strong></p>
+
+<pre>
+<strong>Input:</strong> intervals = [[1,2],[2,3],[3,4],[1,3]]
+<strong>Output:</strong> 1
+<strong>Explanation:</strong> [1,3] can be removed and the rest of the intervals are non-overlapping.
+</pre>
+
+<p><strong class="example">Example 2:</strong></p>
+
+<pre>
+<strong>Input:</strong> intervals = [[1,2],[1,2],[1,2]]
+<strong>Output:</strong> 2
+<strong>Explanation:</strong> You need to remove two [1,2] to make the rest of the intervals non-overlapping.
+</pre>
+
+<p><strong class="example">Example 3:</strong></p>
+
+<pre>
+<strong>Input:</strong> intervals = [[1,2],[2,3]]
+<strong>Output:</strong> 0
+<strong>Explanation:</strong> You don&#39;t need to remove any of the intervals since they&#39;re already non-overlapping.
+</pre>
+
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
+
+<ul>
+	<li><code>1 &lt;= intervals.length &lt;= 10<sup>5</sup></code></li>
+	<li><code>intervals[i].length == 2</code></li>
+	<li><code>-5 * 10<sup>4</sup> &lt;= start<sub>i</sub> &lt; end<sub>i</sub> &lt;= 5 * 10<sup>4</sup></code></li>
+</ul>
+</div><div>class Solution {
+public:
+    int eraseOverlapIntervals(vector<vector<int>>& intervals) {
+        
+    }
+};</div><p style="page-break-before: always" ></p>

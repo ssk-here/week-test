@@ -1,0 +1,538 @@
+<div><style> @page { size: letter portrait; margin: 2cm; }
+ * { word-wrap: break-word; } pre { white-space: pre-wrap; } </style><div><h1>WEEK4</h1></div><p style="page-break-before: always" ></p><div><h2>Contents</h2></div><br /><div><h3>1. Combinations - Medium</h3></div><div><h3>2. Combination Sum - Medium</h3></div><div><h3>3. Combination Sum II - Medium</h3></div><div><h3>4. Combination Sum III - Medium</h3></div><div><h3>5. Generate Parentheses - Medium</h3></div><div><h3>6. Target Sum - Medium</h3></div><div><h3>7. Palindrome Partitioning - Medium</h3></div><div><h3>8. Letter Combinations of a Phone Number - Medium</h3></div><div><h3>9. House Robber - Medium</h3></div><div><h3>10. Maximum Subarray - Medium</h3></div><div><h3>11. House Robber II - Medium</h3></div><div><h3>12. Coin Change - Medium</h3></div><div><h3>13. Maximum Product Subarray - Medium</h3></div><div><h3>14. Longest Increasing Subsequence - Medium</h3></div><p style="page-break-before: always" ></p><div><h2>Combinations</h2><p>Given two integers <code>n</code> and <code>k</code>, return <em>all possible combinations of</em> <code>k</code> <em>numbers chosen from the range</em> <code>[1, n]</code>.</p>
+
+<p>You may return the answer in <strong>any order</strong>.</p>
+
+<p>&nbsp;</p>
+<p><strong class="example">Example 1:</strong></p>
+
+<pre>
+<strong>Input:</strong> n = 4, k = 2
+<strong>Output:</strong> [[1,2],[1,3],[1,4],[2,3],[2,4],[3,4]]
+<strong>Explanation:</strong> There are 4 choose 2 = 6 total combinations.
+Note that combinations are unordered, i.e., [1,2] and [2,1] are considered to be the same combination.
+</pre>
+
+<p><strong class="example">Example 2:</strong></p>
+
+<pre>
+<strong>Input:</strong> n = 1, k = 1
+<strong>Output:</strong> [[1]]
+<strong>Explanation:</strong> There is 1 choose 1 = 1 total combination.
+</pre>
+
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
+
+<ul>
+	<li><code>1 &lt;= n &lt;= 20</code></li>
+	<li><code>1 &lt;= k &lt;= n</code></li>
+</ul>
+</div><div>class Solution {
+public:
+    vector<vector<int>> combine(int n, int k) {
+        
+    }
+};</div><p style="page-break-before: always" ></p><div><h2>Combination Sum</h2><p>Given an array of <strong>distinct</strong> integers <code>candidates</code> and a target integer <code>target</code>, return <em>a list of all <strong>unique combinations</strong> of </em><code>candidates</code><em> where the chosen numbers sum to </em><code>target</code><em>.</em> You may return the combinations in <strong>any order</strong>.</p>
+
+<p>The <strong>same</strong> number may be chosen from <code>candidates</code> an <strong>unlimited number of times</strong>. Two combinations are unique if the <span data-keyword="frequency-array">frequency</span> of at least one of the chosen numbers is different.</p>
+
+<p>The test cases are generated such that the number of unique combinations that sum up to <code>target</code> is less than <code>150</code> combinations for the given input.</p>
+
+<p>&nbsp;</p>
+<p><strong class="example">Example 1:</strong></p>
+
+<pre>
+<strong>Input:</strong> candidates = [2,3,6,7], target = 7
+<strong>Output:</strong> [[2,2,3],[7]]
+<strong>Explanation:</strong>
+2 and 3 are candidates, and 2 + 2 + 3 = 7. Note that 2 can be used multiple times.
+7 is a candidate, and 7 = 7.
+These are the only two combinations.
+</pre>
+
+<p><strong class="example">Example 2:</strong></p>
+
+<pre>
+<strong>Input:</strong> candidates = [2,3,5], target = 8
+<strong>Output:</strong> [[2,2,2,2],[2,3,3],[3,5]]
+</pre>
+
+<p><strong class="example">Example 3:</strong></p>
+
+<pre>
+<strong>Input:</strong> candidates = [2], target = 1
+<strong>Output:</strong> []
+</pre>
+
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
+
+<ul>
+	<li><code>1 &lt;= candidates.length &lt;= 30</code></li>
+	<li><code>2 &lt;= candidates[i] &lt;= 40</code></li>
+	<li>All elements of <code>candidates</code> are <strong>distinct</strong>.</li>
+	<li><code>1 &lt;= target &lt;= 40</code></li>
+</ul>
+</div><div>class Solution {
+public:
+    vector<vector<int>> combinationSum(vector<int>& candidates, int target) {
+        
+    }
+};</div><p style="page-break-before: always" ></p><div><h2>Combination Sum II</h2><p>Given a collection of candidate numbers (<code>candidates</code>) and a target number (<code>target</code>), find all unique combinations in <code>candidates</code>&nbsp;where the candidate numbers sum to <code>target</code>.</p>
+
+<p>Each number in <code>candidates</code>&nbsp;may only be used <strong>once</strong> in the combination.</p>
+
+<p><strong>Note:</strong>&nbsp;The solution set must not contain duplicate combinations.</p>
+
+<p>&nbsp;</p>
+<p><strong class="example">Example 1:</strong></p>
+
+<pre>
+<strong>Input:</strong> candidates = [10,1,2,7,6,1,5], target = 8
+<strong>Output:</strong> 
+[
+[1,1,6],
+[1,2,5],
+[1,7],
+[2,6]
+]
+</pre>
+
+<p><strong class="example">Example 2:</strong></p>
+
+<pre>
+<strong>Input:</strong> candidates = [2,5,2,1,2], target = 5
+<strong>Output:</strong> 
+[
+[1,2,2],
+[5]
+]
+</pre>
+
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
+
+<ul>
+	<li><code>1 &lt;=&nbsp;candidates.length &lt;= 100</code></li>
+	<li><code>1 &lt;=&nbsp;candidates[i] &lt;= 50</code></li>
+	<li><code>1 &lt;= target &lt;= 30</code></li>
+</ul>
+</div><div>class Solution {
+public:
+    vector<vector<int>> combinationSum2(vector<int>& candidates, int target) {
+        
+    }
+};</div><p style="page-break-before: always" ></p><div><h2>Combination Sum III</h2><p>Find all valid combinations of <code>k</code> numbers that sum up to <code>n</code> such that the following conditions are true:</p>
+
+<ul>
+	<li>Only numbers <code>1</code> through <code>9</code> are used.</li>
+	<li>Each number is used <strong>at most once</strong>.</li>
+</ul>
+
+<p>Return <em>a list of all possible valid combinations</em>. The list must not contain the same combination twice, and the combinations may be returned in any order.</p>
+
+<p>&nbsp;</p>
+<p><strong class="example">Example 1:</strong></p>
+
+<pre>
+<strong>Input:</strong> k = 3, n = 7
+<strong>Output:</strong> [[1,2,4]]
+<strong>Explanation:</strong>
+1 + 2 + 4 = 7
+There are no other valid combinations.</pre>
+
+<p><strong class="example">Example 2:</strong></p>
+
+<pre>
+<strong>Input:</strong> k = 3, n = 9
+<strong>Output:</strong> [[1,2,6],[1,3,5],[2,3,4]]
+<strong>Explanation:</strong>
+1 + 2 + 6 = 9
+1 + 3 + 5 = 9
+2 + 3 + 4 = 9
+There are no other valid combinations.
+</pre>
+
+<p><strong class="example">Example 3:</strong></p>
+
+<pre>
+<strong>Input:</strong> k = 4, n = 1
+<strong>Output:</strong> []
+<strong>Explanation:</strong> There are no valid combinations.
+Using 4 different numbers in the range [1,9], the smallest sum we can get is 1+2+3+4 = 10 and since 10 &gt; 1, there are no valid combination.
+</pre>
+
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
+
+<ul>
+	<li><code>2 &lt;= k &lt;= 9</code></li>
+	<li><code>1 &lt;= n &lt;= 60</code></li>
+</ul>
+</div><div>class Solution {
+public:
+    vector<vector<int>> combinationSum3(int k, int n) {
+        
+    }
+};</div><p style="page-break-before: always" ></p><div><h2>Generate Parentheses</h2><p>Given <code>n</code> pairs of parentheses, write a function to <em>generate all combinations of well-formed parentheses</em>.</p>
+
+<p>&nbsp;</p>
+<p><strong class="example">Example 1:</strong></p>
+<pre><strong>Input:</strong> n = 3
+<strong>Output:</strong> ["((()))","(()())","(())()","()(())","()()()"]
+</pre><p><strong class="example">Example 2:</strong></p>
+<pre><strong>Input:</strong> n = 1
+<strong>Output:</strong> ["()"]
+</pre>
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
+
+<ul>
+	<li><code>1 &lt;= n &lt;= 8</code></li>
+</ul>
+</div><div>class Solution {
+public:
+    vector<string> generateParenthesis(int n) {
+        
+    }
+};</div><p style="page-break-before: always" ></p><div><h2>Target Sum</h2><p>You are given an integer array <code>nums</code> and an integer <code>target</code>.</p>
+
+<p>You want to build an <strong>expression</strong> out of nums by adding one of the symbols <code>&#39;+&#39;</code> and <code>&#39;-&#39;</code> before each integer in nums and then concatenate all the integers.</p>
+
+<ul>
+	<li>For example, if <code>nums = [2, 1]</code>, you can add a <code>&#39;+&#39;</code> before <code>2</code> and a <code>&#39;-&#39;</code> before <code>1</code> and concatenate them to build the expression <code>&quot;+2-1&quot;</code>.</li>
+</ul>
+
+<p>Return the number of different <strong>expressions</strong> that you can build, which evaluates to <code>target</code>.</p>
+
+<p>&nbsp;</p>
+<p><strong class="example">Example 1:</strong></p>
+
+<pre>
+<strong>Input:</strong> nums = [1,1,1,1,1], target = 3
+<strong>Output:</strong> 5
+<strong>Explanation:</strong> There are 5 ways to assign symbols to make the sum of nums be target 3.
+-1 + 1 + 1 + 1 + 1 = 3
++1 - 1 + 1 + 1 + 1 = 3
++1 + 1 - 1 + 1 + 1 = 3
++1 + 1 + 1 - 1 + 1 = 3
++1 + 1 + 1 + 1 - 1 = 3
+</pre>
+
+<p><strong class="example">Example 2:</strong></p>
+
+<pre>
+<strong>Input:</strong> nums = [1], target = 1
+<strong>Output:</strong> 1
+</pre>
+
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
+
+<ul>
+	<li><code>1 &lt;= nums.length &lt;= 20</code></li>
+	<li><code>0 &lt;= nums[i] &lt;= 1000</code></li>
+	<li><code>0 &lt;= sum(nums[i]) &lt;= 1000</code></li>
+	<li><code>-1000 &lt;= target &lt;= 1000</code></li>
+</ul>
+</div><div>class Solution {
+public:
+    int findTargetSumWays(vector<int>& nums, int target) {
+        
+    }
+};</div><p style="page-break-before: always" ></p><div><h2>Palindrome Partitioning</h2><p>Given a string <code>s</code>, partition <code>s</code> such that every <span data-keyword="substring-nonempty">substring</span> of the partition is a <span data-keyword="palindrome-string"><strong>palindrome</strong></span>. Return <em>all possible palindrome partitioning of </em><code>s</code>.</p>
+
+<p>&nbsp;</p>
+<p><strong class="example">Example 1:</strong></p>
+<pre><strong>Input:</strong> s = "aab"
+<strong>Output:</strong> [["a","a","b"],["aa","b"]]
+</pre><p><strong class="example">Example 2:</strong></p>
+<pre><strong>Input:</strong> s = "a"
+<strong>Output:</strong> [["a"]]
+</pre>
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
+
+<ul>
+	<li><code>1 &lt;= s.length &lt;= 16</code></li>
+	<li><code>s</code> contains only lowercase English letters.</li>
+</ul>
+</div><div>class Solution {
+public:
+    vector<vector<string>> partition(string s) {
+        
+    }
+};</div><p style="page-break-before: always" ></p><div><h2>Letter Combinations of a Phone Number</h2><p>Given a string containing digits from <code>2-9</code> inclusive, return all possible letter combinations that the number could represent. Return the answer in <strong>any order</strong>.</p>
+
+<p>A mapping of digits to letters (just like on the telephone buttons) is given below. Note that 1 does not map to any letters.</p>
+<img alt="" src="https://assets.leetcode.com/uploads/2022/03/15/1200px-telephone-keypad2svg.png" style="width: 300px; height: 243px;" />
+<p>&nbsp;</p>
+<p><strong class="example">Example 1:</strong></p>
+
+<pre>
+<strong>Input:</strong> digits = &quot;23&quot;
+<strong>Output:</strong> [&quot;ad&quot;,&quot;ae&quot;,&quot;af&quot;,&quot;bd&quot;,&quot;be&quot;,&quot;bf&quot;,&quot;cd&quot;,&quot;ce&quot;,&quot;cf&quot;]
+</pre>
+
+<p><strong class="example">Example 2:</strong></p>
+
+<pre>
+<strong>Input:</strong> digits = &quot;&quot;
+<strong>Output:</strong> []
+</pre>
+
+<p><strong class="example">Example 3:</strong></p>
+
+<pre>
+<strong>Input:</strong> digits = &quot;2&quot;
+<strong>Output:</strong> [&quot;a&quot;,&quot;b&quot;,&quot;c&quot;]
+</pre>
+
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
+
+<ul>
+	<li><code>0 &lt;= digits.length &lt;= 4</code></li>
+	<li><code>digits[i]</code> is a digit in the range <code>[&#39;2&#39;, &#39;9&#39;]</code>.</li>
+</ul>
+</div><div>class Solution {
+public:
+    vector<string> letterCombinations(string digits) {
+        
+    }
+};</div><p style="page-break-before: always" ></p><div><h2>House Robber</h2><p>You are a professional robber planning to rob houses along a street. Each house has a certain amount of money stashed, the only constraint stopping you from robbing each of them is that adjacent houses have security systems connected and <b>it will automatically contact the police if two adjacent houses were broken into on the same night</b>.</p>
+
+<p>Given an integer array <code>nums</code> representing the amount of money of each house, return <em>the maximum amount of money you can rob tonight <b>without alerting the police</b></em>.</p>
+
+<p>&nbsp;</p>
+<p><strong class="example">Example 1:</strong></p>
+
+<pre>
+<strong>Input:</strong> nums = [1,2,3,1]
+<strong>Output:</strong> 4
+<strong>Explanation:</strong> Rob house 1 (money = 1) and then rob house 3 (money = 3).
+Total amount you can rob = 1 + 3 = 4.
+</pre>
+
+<p><strong class="example">Example 2:</strong></p>
+
+<pre>
+<strong>Input:</strong> nums = [2,7,9,3,1]
+<strong>Output:</strong> 12
+<strong>Explanation:</strong> Rob house 1 (money = 2), rob house 3 (money = 9) and rob house 5 (money = 1).
+Total amount you can rob = 2 + 9 + 1 = 12.
+</pre>
+
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
+
+<ul>
+	<li><code>1 &lt;= nums.length &lt;= 100</code></li>
+	<li><code>0 &lt;= nums[i] &lt;= 400</code></li>
+</ul>
+</div><div>class Solution {
+public:
+    int rob(vector<int>& nums) {
+        
+    }
+};</div><p style="page-break-before: always" ></p><div><h2>Maximum Subarray</h2><p>Given an integer array <code>nums</code>, find the <span data-keyword="subarray-nonempty">subarray</span> with the largest sum, and return <em>its sum</em>.</p>
+
+<p>&nbsp;</p>
+<p><strong class="example">Example 1:</strong></p>
+
+<pre>
+<strong>Input:</strong> nums = [-2,1,-3,4,-1,2,1,-5,4]
+<strong>Output:</strong> 6
+<strong>Explanation:</strong> The subarray [4,-1,2,1] has the largest sum 6.
+</pre>
+
+<p><strong class="example">Example 2:</strong></p>
+
+<pre>
+<strong>Input:</strong> nums = [1]
+<strong>Output:</strong> 1
+<strong>Explanation:</strong> The subarray [1] has the largest sum 1.
+</pre>
+
+<p><strong class="example">Example 3:</strong></p>
+
+<pre>
+<strong>Input:</strong> nums = [5,4,-1,7,8]
+<strong>Output:</strong> 23
+<strong>Explanation:</strong> The subarray [5,4,-1,7,8] has the largest sum 23.
+</pre>
+
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
+
+<ul>
+	<li><code>1 &lt;= nums.length &lt;= 10<sup>5</sup></code></li>
+	<li><code>-10<sup>4</sup> &lt;= nums[i] &lt;= 10<sup>4</sup></code></li>
+</ul>
+
+<p>&nbsp;</p>
+<p><strong>Follow up:</strong> If you have figured out the <code>O(n)</code> solution, try coding another solution using the <strong>divide and conquer</strong> approach, which is more subtle.</p>
+</div><div>class Solution {
+public:
+    int maxSubArray(vector<int>& nums) {
+        
+    }
+};</div><p style="page-break-before: always" ></p><div><h2>House Robber II</h2><p>You are a professional robber planning to rob houses along a street. Each house has a certain amount of money stashed. All houses at this place are <strong>arranged in a circle.</strong> That means the first house is the neighbor of the last one. Meanwhile, adjacent houses have a security system connected, and&nbsp;<b>it will automatically contact the police if two adjacent houses were broken into on the same night</b>.</p>
+
+<p>Given an integer array <code>nums</code> representing the amount of money of each house, return <em>the maximum amount of money you can rob tonight <strong>without alerting the police</strong></em>.</p>
+
+<p>&nbsp;</p>
+<p><strong class="example">Example 1:</strong></p>
+
+<pre>
+<strong>Input:</strong> nums = [2,3,2]
+<strong>Output:</strong> 3
+<strong>Explanation:</strong> You cannot rob house 1 (money = 2) and then rob house 3 (money = 2), because they are adjacent houses.
+</pre>
+
+<p><strong class="example">Example 2:</strong></p>
+
+<pre>
+<strong>Input:</strong> nums = [1,2,3,1]
+<strong>Output:</strong> 4
+<strong>Explanation:</strong> Rob house 1 (money = 1) and then rob house 3 (money = 3).
+Total amount you can rob = 1 + 3 = 4.
+</pre>
+
+<p><strong class="example">Example 3:</strong></p>
+
+<pre>
+<strong>Input:</strong> nums = [1,2,3]
+<strong>Output:</strong> 3
+</pre>
+
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
+
+<ul>
+	<li><code>1 &lt;= nums.length &lt;= 100</code></li>
+	<li><code>0 &lt;= nums[i] &lt;= 1000</code></li>
+</ul>
+</div><div>class Solution {
+public:
+    int rob(vector<int>& nums) {
+        
+    }
+};</div><p style="page-break-before: always" ></p><div><h2>Coin Change</h2><p>You are given an integer array <code>coins</code> representing coins of different denominations and an integer <code>amount</code> representing a total amount of money.</p>
+
+<p>Return <em>the fewest number of coins that you need to make up that amount</em>. If that amount of money cannot be made up by any combination of the coins, return <code>-1</code>.</p>
+
+<p>You may assume that you have an infinite number of each kind of coin.</p>
+
+<p>&nbsp;</p>
+<p><strong class="example">Example 1:</strong></p>
+
+<pre>
+<strong>Input:</strong> coins = [1,2,5], amount = 11
+<strong>Output:</strong> 3
+<strong>Explanation:</strong> 11 = 5 + 5 + 1
+</pre>
+
+<p><strong class="example">Example 2:</strong></p>
+
+<pre>
+<strong>Input:</strong> coins = [2], amount = 3
+<strong>Output:</strong> -1
+</pre>
+
+<p><strong class="example">Example 3:</strong></p>
+
+<pre>
+<strong>Input:</strong> coins = [1], amount = 0
+<strong>Output:</strong> 0
+</pre>
+
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
+
+<ul>
+	<li><code>1 &lt;= coins.length &lt;= 12</code></li>
+	<li><code>1 &lt;= coins[i] &lt;= 2<sup>31</sup> - 1</code></li>
+	<li><code>0 &lt;= amount &lt;= 10<sup>4</sup></code></li>
+</ul>
+</div><div>class Solution {
+public:
+    int coinChange(vector<int>& coins, int amount) {
+        
+    }
+};</div><p style="page-break-before: always" ></p><div><h2>Maximum Product Subarray</h2><p>Given an integer array <code>nums</code>, find a <span data-keyword="subarray-nonempty">subarray</span> that has the largest product, and return <em>the product</em>.</p>
+
+<p>The test cases are generated so that the answer will fit in a <strong>32-bit</strong> integer.</p>
+
+<p>&nbsp;</p>
+<p><strong class="example">Example 1:</strong></p>
+
+<pre>
+<strong>Input:</strong> nums = [2,3,-2,4]
+<strong>Output:</strong> 6
+<strong>Explanation:</strong> [2,3] has the largest product 6.
+</pre>
+
+<p><strong class="example">Example 2:</strong></p>
+
+<pre>
+<strong>Input:</strong> nums = [-2,0,-1]
+<strong>Output:</strong> 0
+<strong>Explanation:</strong> The result cannot be 2, because [-2,-1] is not a subarray.
+</pre>
+
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
+
+<ul>
+	<li><code>1 &lt;= nums.length &lt;= 2 * 10<sup>4</sup></code></li>
+	<li><code>-10 &lt;= nums[i] &lt;= 10</code></li>
+	<li>The product of any subarray of <code>nums</code> is <strong>guaranteed</strong> to fit in a <strong>32-bit</strong> integer.</li>
+</ul>
+</div><div>class Solution {
+public:
+    int maxProduct(vector<int>& nums) {
+        
+    }
+};</div><p style="page-break-before: always" ></p><div><h2>Longest Increasing Subsequence</h2><p>Given an integer array <code>nums</code>, return <em>the length of the longest <strong>strictly increasing </strong></em><span data-keyword="subsequence-array"><em><strong>subsequence</strong></em></span>.</p>
+
+<p>&nbsp;</p>
+<p><strong class="example">Example 1:</strong></p>
+
+<pre>
+<strong>Input:</strong> nums = [10,9,2,5,3,7,101,18]
+<strong>Output:</strong> 4
+<strong>Explanation:</strong> The longest increasing subsequence is [2,3,7,101], therefore the length is 4.
+</pre>
+
+<p><strong class="example">Example 2:</strong></p>
+
+<pre>
+<strong>Input:</strong> nums = [0,1,0,3,2,3]
+<strong>Output:</strong> 4
+</pre>
+
+<p><strong class="example">Example 3:</strong></p>
+
+<pre>
+<strong>Input:</strong> nums = [7,7,7,7,7,7,7]
+<strong>Output:</strong> 1
+</pre>
+
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
+
+<ul>
+	<li><code>1 &lt;= nums.length &lt;= 2500</code></li>
+	<li><code>-10<sup>4</sup> &lt;= nums[i] &lt;= 10<sup>4</sup></code></li>
+</ul>
+
+<p>&nbsp;</p>
+<p><b>Follow up:</b>&nbsp;Can you come up with an algorithm that runs in&nbsp;<code>O(n log(n))</code> time complexity?</p>
+</div><div>class Solution {
+public:
+    int lengthOfLIS(vector<int>& nums) {
+        
+    }
+};</div><p style="page-break-before: always" ></p>

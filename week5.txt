@@ -1,0 +1,16 @@
+~WEEK5
+https://leetcode.com/problems/longest-palindromic-substring
+https://leetcode.com/problems/word-break
+https://leetcode.com/problems/combination-sum-iv
+https://leetcode.com/problems/decode-ways
+https://leetcode.com/problems/unique-paths
+https://leetcode.com/problems/jump-game
+https://leetcode.com/problems/palindromic-substrings
+https://leetcode.com/problems/number-of-longest-increasing-subsequence
+https://leetcode.com/problems/partition-equal-subset-sum
+https://leetcode.com/problems/partition-to-k-equal-sum-subsets
+https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-cooldown
+https://leetcode.com/problems/linked-list-cycle-ii
+https://leetcode.com/problems/add-two-numbers
+https://leetcode.com/problems/remove-nth-node-from-end-of-list
+https://leetcode.com/problems/sort-list

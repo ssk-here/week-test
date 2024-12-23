@@ -1,0 +1,1 @@
+/usr/bin/g++ "CMakeFiles/learn.dir/WEEK1/best-time-to-buy-and-sell-stock.cpp.o" -o learn  -lgtest -lgtest_main 

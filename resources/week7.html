@@ -1,0 +1,622 @@
+<div><style> @page { size: letter portrait; margin: 2cm; }
+ * { word-wrap: break-word; } pre { white-space: pre-wrap; } </style><div><h2>Task Scheduler</h2><p>You are given an array of CPU <code>tasks</code>, each represented by letters&nbsp;A&nbsp;to Z, and a cooling time, <code>n</code>. Each cycle or interval allows the completion of one task. Tasks can be completed in any order, but there&#39;s a constraint: <strong>identical</strong> tasks must be separated by at least <code>n</code> intervals due to cooling time.</p>
+
+<p>​Return the <em>minimum number of intervals</em> required to complete all tasks.</p>
+
+<p>&nbsp;</p>
+<p><strong class="example">Example 1:</strong></p>
+
+<div class="example-block" style="
+    border-color: var(--border-tertiary);
+    border-left-width: 2px;
+    color: var(--text-secondary);
+    font-size: .875rem;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+    overflow: visible;
+    padding-left: 1rem;
+">
+<p><strong>Input:</strong> <span class="example-io" style="
+    font-family: Menlo,sans-serif;
+    font-size: 0.85rem;
+">tasks = [&quot;A&quot;,&quot;A&quot;,&quot;A&quot;,&quot;B&quot;,&quot;B&quot;,&quot;B&quot;], n = 2</span></p>
+
+<p><strong>Output:</strong> <span class="example-io" style="
+font-family: Menlo,sans-serif;
+font-size: 0.85rem;
+">8</span></p>
+
+<p><strong>Explanation:</strong> A possible sequence is: A -&gt; B -&gt; idle -&gt; A -&gt; B -&gt; idle -&gt; A -&gt; B.</p>
+
+<p>After completing task A, you must wait two cycles before doing A again. The same applies to task B. In the 3<sup>rd</sup> interval, neither A nor B can be done, so you idle. By the 4<sup>th</sup> cycle, you can do A again as 2 intervals have passed.</p>
+</div>
+
+<p><strong class="example">Example 2:</strong></p>
+
+<div class="example-block" style="
+    border-color: var(--border-tertiary);
+    border-left-width: 2px;
+    color: var(--text-secondary);
+    font-size: .875rem;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+    overflow: visible;
+    padding-left: 1rem;
+">
+<p><strong>Input:</strong> <span class="example-io" style="
+    font-family: Menlo,sans-serif;
+    font-size: 0.85rem;
+">tasks = [&quot;A&quot;,&quot;C&quot;,&quot;A&quot;,&quot;B&quot;,&quot;D&quot;,&quot;B&quot;], n = 1</span></p>
+
+<p><strong>Output:</strong> <span class="example-io" style="
+    font-family: Menlo,sans-serif;
+    font-size: 0.85rem;
+">6</span></p>
+
+<p><strong>Explanation:</strong> A possible sequence is: A -&gt; B -&gt; C -&gt; D -&gt; A -&gt; B.</p>
+
+<p>With a cooling interval of 1, you can repeat a task after just one other task.</p>
+</div>
+
+<p><strong class="example">Example 3:</strong></p>
+
+<div class="example-block" style="
+    border-color: var(--border-tertiary);
+    border-left-width: 2px;
+    color: var(--text-secondary);
+    font-size: .875rem;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+    overflow: visible;
+    padding-left: 1rem;
+">
+<p><strong>Input:</strong> <span class="example-io" style="
+    font-family: Menlo,sans-serif;
+    font-size: 0.85rem;
+">tasks = [&quot;A&quot;,&quot;A&quot;,&quot;A&quot;, &quot;B&quot;,&quot;B&quot;,&quot;B&quot;], n = 3</span></p>
+
+<p><strong>Output:</strong> <span class="example-io" style="
+    font-family: Menlo,sans-serif;
+    font-size: 0.85rem;
+">10</span></p>
+
+<p><strong>Explanation:</strong> A possible sequence is: A -&gt; B -&gt; idle -&gt; idle -&gt; A -&gt; B -&gt; idle -&gt; idle -&gt; A -&gt; B.</p>
+
+<p>There are only two types of tasks, A and B, which need to be separated by 3 intervals. This leads to idling twice between repetitions of these tasks.</p>
+</div>
+
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
+
+<ul>
+	<li><code>1 &lt;= tasks.length &lt;= 10<sup>4</sup></code></li>
+	<li><code>tasks[i]</code> is an uppercase English letter.</li>
+	<li><code>0 &lt;= n &lt;= 100</code></li>
+</ul>
+</div><div>class Solution {
+public:
+    int leastInterval(vector<char>& tasks, int n) {
+        
+    }
+};</div><p style="page-break-before: always" ></p><div><h2>Minimum Number of Arrows to Burst Balloons</h2><p>There are some spherical balloons taped onto a flat wall that represents the XY-plane. The balloons are represented as a 2D integer array <code>points</code> where <code>points[i] = [x<sub>start</sub>, x<sub>end</sub>]</code> denotes a balloon whose <strong>horizontal diameter</strong> stretches between <code>x<sub>start</sub></code> and <code>x<sub>end</sub></code>. You do not know the exact y-coordinates of the balloons.</p>
+
+<p>Arrows can be shot up <strong>directly vertically</strong> (in the positive y-direction) from different points along the x-axis. A balloon with <code>x<sub>start</sub></code> and <code>x<sub>end</sub></code> is <strong>burst</strong> by an arrow shot at <code>x</code> if <code>x<sub>start</sub> &lt;= x &lt;= x<sub>end</sub></code>. There is <strong>no limit</strong> to the number of arrows that can be shot. A shot arrow keeps traveling up infinitely, bursting any balloons in its path.</p>
+
+<p>Given the array <code>points</code>, return <em>the <strong>minimum</strong> number of arrows that must be shot to burst all balloons</em>.</p>
+
+<p>&nbsp;</p>
+<p><strong class="example">Example 1:</strong></p>
+
+<pre>
+<strong>Input:</strong> points = [[10,16],[2,8],[1,6],[7,12]]
+<strong>Output:</strong> 2
+<strong>Explanation:</strong> The balloons can be burst by 2 arrows:
+- Shoot an arrow at x = 6, bursting the balloons [2,8] and [1,6].
+- Shoot an arrow at x = 11, bursting the balloons [10,16] and [7,12].
+</pre>
+
+<p><strong class="example">Example 2:</strong></p>
+
+<pre>
+<strong>Input:</strong> points = [[1,2],[3,4],[5,6],[7,8]]
+<strong>Output:</strong> 4
+<strong>Explanation:</strong> One arrow needs to be shot for each balloon for a total of 4 arrows.
+</pre>
+
+<p><strong class="example">Example 3:</strong></p>
+
+<pre>
+<strong>Input:</strong> points = [[1,2],[2,3],[3,4],[4,5]]
+<strong>Output:</strong> 2
+<strong>Explanation:</strong> The balloons can be burst by 2 arrows:
+- Shoot an arrow at x = 2, bursting the balloons [1,2] and [2,3].
+- Shoot an arrow at x = 4, bursting the balloons [3,4] and [4,5].
+</pre>
+
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
+
+<ul>
+	<li><code>1 &lt;= points.length &lt;= 10<sup>5</sup></code></li>
+	<li><code>points[i].length == 2</code></li>
+	<li><code>-2<sup>31</sup> &lt;= x<sub>start</sub> &lt; x<sub>end</sub> &lt;= 2<sup>31</sup> - 1</code></li>
+</ul>
+</div><div>class Solution {
+public:
+    int findMinArrowShots(vector<vector<int>>& points) {
+        
+    }
+};</div><p style="page-break-before: always" ></p><div><h2>Insert Interval</h2><p>You are given an array of non-overlapping intervals <code>intervals</code> where <code>intervals[i] = [start<sub>i</sub>, end<sub>i</sub>]</code> represent the start and the end of the <code>i<sup>th</sup></code> interval and <code>intervals</code> is sorted in ascending order by <code>start<sub>i</sub></code>. You are also given an interval <code>newInterval = [start, end]</code> that represents the start and end of another interval.</p>
+
+<p>Insert <code>newInterval</code> into <code>intervals</code> such that <code>intervals</code> is still sorted in ascending order by <code>start<sub>i</sub></code> and <code>intervals</code> still does not have any overlapping intervals (merge overlapping intervals if necessary).</p>
+
+<p>Return <code>intervals</code><em> after the insertion</em>.</p>
+
+<p><strong>Note</strong> that you don&#39;t need to modify <code>intervals</code> in-place. You can make a new array and return it.</p>
+
+<p>&nbsp;</p>
+<p><strong class="example">Example 1:</strong></p>
+
+<pre>
+<strong>Input:</strong> intervals = [[1,3],[6,9]], newInterval = [2,5]
+<strong>Output:</strong> [[1,5],[6,9]]
+</pre>
+
+<p><strong class="example">Example 2:</strong></p>
+
+<pre>
+<strong>Input:</strong> intervals = [[1,2],[3,5],[6,7],[8,10],[12,16]], newInterval = [4,8]
+<strong>Output:</strong> [[1,2],[3,10],[12,16]]
+<strong>Explanation:</strong> Because the new interval [4,8] overlaps with [3,5],[6,7],[8,10].
+</pre>
+
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
+
+<ul>
+	<li><code>0 &lt;= intervals.length &lt;= 10<sup>4</sup></code></li>
+	<li><code>intervals[i].length == 2</code></li>
+	<li><code>0 &lt;= start<sub>i</sub> &lt;= end<sub>i</sub> &lt;= 10<sup>5</sup></code></li>
+	<li><code>intervals</code> is sorted by <code>start<sub>i</sub></code> in <strong>ascending</strong> order.</li>
+	<li><code>newInterval.length == 2</code></li>
+	<li><code>0 &lt;= start &lt;= end &lt;= 10<sup>5</sup></code></li>
+</ul>
+</div><div>class Solution {
+public:
+    vector<vector<int>> insert(vector<vector<int>>& intervals, vector<int>& newInterval) {
+        
+    }
+};</div><p style="page-break-before: always" ></p><div><h2>Peak Index in a Mountain Array</h2><p>You are given an integer <strong>mountain</strong> array <code>arr</code> of length <code>n</code> where the values increase to a <strong>peak element</strong> and then decrease.</p>
+
+<p>Return the index of the peak element.</p>
+
+<p>Your task is to solve it in <code>O(log(n))</code> time complexity.</p>
+
+<p>&nbsp;</p>
+<p><strong class="example">Example 1:</strong></p>
+
+<div class="example-block">
+<p><strong>Input:</strong> <span class="example-io">arr = [0,1,0]</span></p>
+
+<p><strong>Output:</strong> <span class="example-io">1</span></p>
+</div>
+
+<p><strong class="example">Example 2:</strong></p>
+
+<div class="example-block">
+<p><strong>Input:</strong> <span class="example-io">arr = [0,2,1,0]</span></p>
+
+<p><strong>Output:</strong> <span class="example-io">1</span></p>
+</div>
+
+<p><strong class="example">Example 3:</strong></p>
+
+<div class="example-block">
+<p><strong>Input:</strong> <span class="example-io">arr = [0,10,5,2]</span></p>
+
+<p><strong>Output:</strong> <span class="example-io">1</span></p>
+</div>
+
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
+
+<ul>
+	<li><code>3 &lt;= arr.length &lt;= 10<sup>5</sup></code></li>
+	<li><code>0 &lt;= arr[i] &lt;= 10<sup>6</sup></code></li>
+	<li><code>arr</code> is <strong>guaranteed</strong> to be a mountain array.</li>
+</ul>
+</div><div>class Solution {
+public:
+    int peakIndexInMountainArray(vector<int>& arr) {
+        
+    }
+};</div><p style="page-break-before: always" ></p><div><h2>Find Minimum in Rotated Sorted Array</h2><p>Suppose an array of length <code>n</code> sorted in ascending order is <strong>rotated</strong> between <code>1</code> and <code>n</code> times. For example, the array <code>nums = [0,1,2,4,5,6,7]</code> might become:</p>
+
+<ul>
+	<li><code>[4,5,6,7,0,1,2]</code> if it was rotated <code>4</code> times.</li>
+	<li><code>[0,1,2,4,5,6,7]</code> if it was rotated <code>7</code> times.</li>
+</ul>
+
+<p>Notice that <strong>rotating</strong> an array <code>[a[0], a[1], a[2], ..., a[n-1]]</code> 1 time results in the array <code>[a[n-1], a[0], a[1], a[2], ..., a[n-2]]</code>.</p>
+
+<p>Given the sorted rotated array <code>nums</code> of <strong>unique</strong> elements, return <em>the minimum element of this array</em>.</p>
+
+<p>You must write an algorithm that runs in&nbsp;<code>O(log n) time</code>.</p>
+
+<p>&nbsp;</p>
+<p><strong class="example">Example 1:</strong></p>
+
+<pre>
+<strong>Input:</strong> nums = [3,4,5,1,2]
+<strong>Output:</strong> 1
+<strong>Explanation:</strong> The original array was [1,2,3,4,5] rotated 3 times.
+</pre>
+
+<p><strong class="example">Example 2:</strong></p>
+
+<pre>
+<strong>Input:</strong> nums = [4,5,6,7,0,1,2]
+<strong>Output:</strong> 0
+<strong>Explanation:</strong> The original array was [0,1,2,4,5,6,7] and it was rotated 4 times.
+</pre>
+
+<p><strong class="example">Example 3:</strong></p>
+
+<pre>
+<strong>Input:</strong> nums = [11,13,15,17]
+<strong>Output:</strong> 11
+<strong>Explanation:</strong> The original array was [11,13,15,17] and it was rotated 4 times. 
+</pre>
+
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
+
+<ul>
+	<li><code>n == nums.length</code></li>
+	<li><code>1 &lt;= n &lt;= 5000</code></li>
+	<li><code>-5000 &lt;= nums[i] &lt;= 5000</code></li>
+	<li>All the integers of <code>nums</code> are <strong>unique</strong>.</li>
+	<li><code>nums</code> is sorted and rotated between <code>1</code> and <code>n</code> times.</li>
+</ul>
+</div><div>class Solution {
+public:
+    int findMin(vector<int>& nums) {
+        
+    }
+};</div><p style="page-break-before: always" ></p><div><h2>Find Peak Element</h2><p>A peak element is an element that is strictly greater than its neighbors.</p>
+
+<p>Given a <strong>0-indexed</strong> integer array <code>nums</code>, find a peak element, and return its index. If the array contains multiple peaks, return the index to <strong>any of the peaks</strong>.</p>
+
+<p>You may imagine that <code>nums[-1] = nums[n] = -&infin;</code>. In other words, an element is always considered to be strictly greater than a neighbor that is outside the array.</p>
+
+<p>You must write an algorithm that runs in <code>O(log n)</code> time.</p>
+
+<p>&nbsp;</p>
+<p><strong class="example">Example 1:</strong></p>
+
+<pre>
+<strong>Input:</strong> nums = [1,2,3,1]
+<strong>Output:</strong> 2
+<strong>Explanation:</strong> 3 is a peak element and your function should return the index number 2.</pre>
+
+<p><strong class="example">Example 2:</strong></p>
+
+<pre>
+<strong>Input:</strong> nums = [1,2,1,3,5,6,4]
+<strong>Output:</strong> 5
+<strong>Explanation:</strong> Your function can return either index number 1 where the peak element is 2, or index number 5 where the peak element is 6.</pre>
+
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
+
+<ul>
+	<li><code>1 &lt;= nums.length &lt;= 1000</code></li>
+	<li><code>-2<sup>31</sup> &lt;= nums[i] &lt;= 2<sup>31</sup> - 1</code></li>
+	<li><code>nums[i] != nums[i + 1]</code> for all valid <code>i</code>.</li>
+</ul>
+</div><div>class Solution {
+public:
+    int findPeakElement(vector<int>& nums) {
+        
+    }
+};</div><p style="page-break-before: always" ></p><div><h2>Search in Rotated Sorted Array</h2><p>There is an integer array <code>nums</code> sorted in ascending order (with <strong>distinct</strong> values).</p>
+
+<p>Prior to being passed to your function, <code>nums</code> is <strong>possibly rotated</strong> at an unknown pivot index <code>k</code> (<code>1 &lt;= k &lt; nums.length</code>) such that the resulting array is <code>[nums[k], nums[k+1], ..., nums[n-1], nums[0], nums[1], ..., nums[k-1]]</code> (<strong>0-indexed</strong>). For example, <code>[0,1,2,4,5,6,7]</code> might be rotated at pivot index <code>3</code> and become <code>[4,5,6,7,0,1,2]</code>.</p>
+
+<p>Given the array <code>nums</code> <strong>after</strong> the possible rotation and an integer <code>target</code>, return <em>the index of </em><code>target</code><em> if it is in </em><code>nums</code><em>, or </em><code>-1</code><em> if it is not in </em><code>nums</code>.</p>
+
+<p>You must write an algorithm with <code>O(log n)</code> runtime complexity.</p>
+
+<p>&nbsp;</p>
+<p><strong class="example">Example 1:</strong></p>
+<pre><strong>Input:</strong> nums = [4,5,6,7,0,1,2], target = 0
+<strong>Output:</strong> 4
+</pre><p><strong class="example">Example 2:</strong></p>
+<pre><strong>Input:</strong> nums = [4,5,6,7,0,1,2], target = 3
+<strong>Output:</strong> -1
+</pre><p><strong class="example">Example 3:</strong></p>
+<pre><strong>Input:</strong> nums = [1], target = 0
+<strong>Output:</strong> -1
+</pre>
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
+
+<ul>
+	<li><code>1 &lt;= nums.length &lt;= 5000</code></li>
+	<li><code>-10<sup>4</sup> &lt;= nums[i] &lt;= 10<sup>4</sup></code></li>
+	<li>All values of <code>nums</code> are <strong>unique</strong>.</li>
+	<li><code>nums</code> is an ascending array that is possibly rotated.</li>
+	<li><code>-10<sup>4</sup> &lt;= target &lt;= 10<sup>4</sup></code></li>
+</ul>
+</div><div>class Solution {
+public:
+    int search(vector<int>& nums, int target) {
+        
+    }
+};</div><p style="page-break-before: always" ></p><div><h2>Search in Rotated Sorted Array II</h2><p>There is an integer array <code>nums</code> sorted in non-decreasing order (not necessarily with <strong>distinct</strong> values).</p>
+
+<p>Before being passed to your function, <code>nums</code> is <strong>rotated</strong> at an unknown pivot index <code>k</code> (<code>0 &lt;= k &lt; nums.length</code>) such that the resulting array is <code>[nums[k], nums[k+1], ..., nums[n-1], nums[0], nums[1], ..., nums[k-1]]</code> (<strong>0-indexed</strong>). For example, <code>[0,1,2,4,4,4,5,6,6,7]</code> might be rotated at pivot index <code>5</code> and become <code>[4,5,6,6,7,0,1,2,4,4]</code>.</p>
+
+<p>Given the array <code>nums</code> <strong>after</strong> the rotation and an integer <code>target</code>, return <code>true</code><em> if </em><code>target</code><em> is in </em><code>nums</code><em>, or </em><code>false</code><em> if it is not in </em><code>nums</code><em>.</em></p>
+
+<p>You must decrease the overall operation steps as much as possible.</p>
+
+<p>&nbsp;</p>
+<p><strong class="example">Example 1:</strong></p>
+<pre><strong>Input:</strong> nums = [2,5,6,0,0,1,2], target = 0
+<strong>Output:</strong> true
+</pre><p><strong class="example">Example 2:</strong></p>
+<pre><strong>Input:</strong> nums = [2,5,6,0,0,1,2], target = 3
+<strong>Output:</strong> false
+</pre>
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
+
+<ul>
+	<li><code>1 &lt;= nums.length &lt;= 5000</code></li>
+	<li><code>-10<sup>4</sup> &lt;= nums[i] &lt;= 10<sup>4</sup></code></li>
+	<li><code>nums</code> is guaranteed to be rotated at some pivot.</li>
+	<li><code>-10<sup>4</sup> &lt;= target &lt;= 10<sup>4</sup></code></li>
+</ul>
+
+<p>&nbsp;</p>
+<p><strong>Follow up:</strong> This problem is similar to&nbsp;<a href="/problems/search-in-rotated-sorted-array/description/" target="_blank">Search in Rotated Sorted Array</a>, but&nbsp;<code>nums</code> may contain <strong>duplicates</strong>. Would this affect the runtime complexity? How and why?</p>
+</div><div>class Solution {
+public:
+    bool search(vector<int>& nums, int target) {
+        
+    }
+};</div><p style="page-break-before: always" ></p><div><h2>Search a 2D Matrix</h2><p>You are given an <code>m x n</code> integer matrix <code>matrix</code> with the following two properties:</p>
+
+<ul>
+	<li>Each row is sorted in non-decreasing order.</li>
+	<li>The first integer of each row is greater than the last integer of the previous row.</li>
+</ul>
+
+<p>Given an integer <code>target</code>, return <code>true</code> <em>if</em> <code>target</code> <em>is in</em> <code>matrix</code> <em>or</em> <code>false</code> <em>otherwise</em>.</p>
+
+<p>You must write a solution in <code>O(log(m * n))</code> time complexity.</p>
+
+<p>&nbsp;</p>
+<p><strong class="example">Example 1:</strong></p>
+<img alt="" src="https://assets.leetcode.com/uploads/2020/10/05/mat.jpg" style="width: 322px; height: 242px;" />
+<pre>
+<strong>Input:</strong> matrix = [[1,3,5,7],[10,11,16,20],[23,30,34,60]], target = 3
+<strong>Output:</strong> true
+</pre>
+
+<p><strong class="example">Example 2:</strong></p>
+<img alt="" src="https://assets.leetcode.com/uploads/2020/10/05/mat2.jpg" style="width: 322px; height: 242px;" />
+<pre>
+<strong>Input:</strong> matrix = [[1,3,5,7],[10,11,16,20],[23,30,34,60]], target = 13
+<strong>Output:</strong> false
+</pre>
+
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
+
+<ul>
+	<li><code>m == matrix.length</code></li>
+	<li><code>n == matrix[i].length</code></li>
+	<li><code>1 &lt;= m, n &lt;= 100</code></li>
+	<li><code>-10<sup>4</sup> &lt;= matrix[i][j], target &lt;= 10<sup>4</sup></code></li>
+</ul>
+</div><div>class Solution {
+public:
+    bool searchMatrix(vector<vector<int>>& matrix, int target) {
+        
+    }
+};</div><p style="page-break-before: always" ></p><div><h2>Search a 2D Matrix II</h2><p>Write an efficient algorithm that searches for a value <code>target</code> in an <code>m x n</code> integer matrix <code>matrix</code>. This matrix has the following properties:</p>
+
+<ul>
+	<li>Integers in each row are sorted in ascending from left to right.</li>
+	<li>Integers in each column are sorted in ascending from top to bottom.</li>
+</ul>
+
+<p>&nbsp;</p>
+<p><strong class="example">Example 1:</strong></p>
+<img alt="" src="https://assets.leetcode.com/uploads/2020/11/24/searchgrid2.jpg" style="width: 300px; height: 300px;" />
+<pre>
+<strong>Input:</strong> matrix = [[1,4,7,11,15],[2,5,8,12,19],[3,6,9,16,22],[10,13,14,17,24],[18,21,23,26,30]], target = 5
+<strong>Output:</strong> true
+</pre>
+
+<p><strong class="example">Example 2:</strong></p>
+<img alt="" src="https://assets.leetcode.com/uploads/2020/11/24/searchgrid.jpg" style="width: 300px; height: 300px;" />
+<pre>
+<strong>Input:</strong> matrix = [[1,4,7,11,15],[2,5,8,12,19],[3,6,9,16,22],[10,13,14,17,24],[18,21,23,26,30]], target = 20
+<strong>Output:</strong> false
+</pre>
+
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
+
+<ul>
+	<li><code>m == matrix.length</code></li>
+	<li><code>n == matrix[i].length</code></li>
+	<li><code>1 &lt;= n, m &lt;= 300</code></li>
+	<li><code>-10<sup>9</sup> &lt;= matrix[i][j] &lt;= 10<sup>9</sup></code></li>
+	<li>All the integers in each row are <strong>sorted</strong> in ascending order.</li>
+	<li>All the integers in each column are <strong>sorted</strong> in ascending order.</li>
+	<li><code>-10<sup>9</sup> &lt;= target &lt;= 10<sup>9</sup></code></li>
+</ul>
+</div><div>class Solution {
+public:
+    bool searchMatrix(vector<vector<int>>& matrix, int target) {
+        
+    }
+};</div><p style="page-break-before: always" ></p><div><h2>Find K Closest Elements</h2><p>Given a <strong>sorted</strong> integer array <code>arr</code>, two integers <code>k</code> and <code>x</code>, return the <code>k</code> closest integers to <code>x</code> in the array. The result should also be sorted in ascending order.</p>
+
+<p>An integer <code>a</code> is closer to <code>x</code> than an integer <code>b</code> if:</p>
+
+<ul>
+	<li><code>|a - x| &lt; |b - x|</code>, or</li>
+	<li><code>|a - x| == |b - x|</code> and <code>a &lt; b</code></li>
+</ul>
+
+<p>&nbsp;</p>
+<p><strong class="example">Example 1:</strong></p>
+<pre><strong>Input:</strong> arr = [1,2,3,4,5], k = 4, x = 3
+<strong>Output:</strong> [1,2,3,4]
+</pre><p><strong class="example">Example 2:</strong></p>
+<pre><strong>Input:</strong> arr = [1,2,3,4,5], k = 4, x = -1
+<strong>Output:</strong> [1,2,3,4]
+</pre>
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
+
+<ul>
+	<li><code>1 &lt;= k &lt;= arr.length</code></li>
+	<li><code>1 &lt;= arr.length &lt;= 10<sup>4</sup></code></li>
+	<li><code>arr</code> is sorted in <strong>ascending</strong> order.</li>
+	<li><code>-10<sup>4</sup> &lt;= arr[i], x &lt;= 10<sup>4</sup></code></li>
+</ul>
+</div><div>class Solution {
+public:
+    vector<int> findClosestElements(vector<int>& arr, int k, int x) {
+        
+    }
+};</div><p style="page-break-before: always" ></p><div><h2>Minimum Size Subarray Sum</h2><p>Given an array of positive integers <code>nums</code> and a positive integer <code>target</code>, return <em>the <strong>minimal length</strong> of a </em><span data-keyword="subarray-nonempty"><em>subarray</em></span><em> whose sum is greater than or equal to</em> <code>target</code>. If there is no such subarray, return <code>0</code> instead.</p>
+
+<p>&nbsp;</p>
+<p><strong class="example">Example 1:</strong></p>
+
+<pre>
+<strong>Input:</strong> target = 7, nums = [2,3,1,2,4,3]
+<strong>Output:</strong> 2
+<strong>Explanation:</strong> The subarray [4,3] has the minimal length under the problem constraint.
+</pre>
+
+<p><strong class="example">Example 2:</strong></p>
+
+<pre>
+<strong>Input:</strong> target = 4, nums = [1,4,4]
+<strong>Output:</strong> 1
+</pre>
+
+<p><strong class="example">Example 3:</strong></p>
+
+<pre>
+<strong>Input:</strong> target = 11, nums = [1,1,1,1,1,1,1,1]
+<strong>Output:</strong> 0
+</pre>
+
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
+
+<ul>
+	<li><code>1 &lt;= target &lt;= 10<sup>9</sup></code></li>
+	<li><code>1 &lt;= nums.length &lt;= 10<sup>5</sup></code></li>
+	<li><code>1 &lt;= nums[i] &lt;= 10<sup>4</sup></code></li>
+</ul>
+
+<p>&nbsp;</p>
+<strong>Follow up:</strong> If you have figured out the <code>O(n)</code> solution, try coding another solution of which the time complexity is <code>O(n log(n))</code>.</div><div>class Solution {
+public:
+    int minSubArrayLen(int target, vector<int>& nums) {
+        
+    }
+};</div><p style="page-break-before: always" ></p><div><h2>Fruit Into Baskets</h2><p>You are visiting a farm that has a single row of fruit trees arranged from left to right. The trees are represented by an integer array <code>fruits</code> where <code>fruits[i]</code> is the <strong>type</strong> of fruit the <code>i<sup>th</sup></code> tree produces.</p>
+
+<p>You want to collect as much fruit as possible. However, the owner has some strict rules that you must follow:</p>
+
+<ul>
+	<li>You only have <strong>two</strong> baskets, and each basket can only hold a <strong>single type</strong> of fruit. There is no limit on the amount of fruit each basket can hold.</li>
+	<li>Starting from any tree of your choice, you must pick <strong>exactly one fruit</strong> from <strong>every</strong> tree (including the start tree) while moving to the right. The picked fruits must fit in one of your baskets.</li>
+	<li>Once you reach a tree with fruit that cannot fit in your baskets, you must stop.</li>
+</ul>
+
+<p>Given the integer array <code>fruits</code>, return <em>the <strong>maximum</strong> number of fruits you can pick</em>.</p>
+
+<p>&nbsp;</p>
+<p><strong class="example">Example 1:</strong></p>
+
+<pre>
+<strong>Input:</strong> fruits = [<u>1,2,1</u>]
+<strong>Output:</strong> 3
+<strong>Explanation:</strong> We can pick from all 3 trees.
+</pre>
+
+<p><strong class="example">Example 2:</strong></p>
+
+<pre>
+<strong>Input:</strong> fruits = [0,<u>1,2,2</u>]
+<strong>Output:</strong> 3
+<strong>Explanation:</strong> We can pick from trees [1,2,2].
+If we had started at the first tree, we would only pick from trees [0,1].
+</pre>
+
+<p><strong class="example">Example 3:</strong></p>
+
+<pre>
+<strong>Input:</strong> fruits = [1,<u>2,3,2,2</u>]
+<strong>Output:</strong> 4
+<strong>Explanation:</strong> We can pick from trees [2,3,2,2].
+If we had started at the first tree, we would only pick from trees [1,2].
+</pre>
+
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
+
+<ul>
+	<li><code>1 &lt;= fruits.length &lt;= 10<sup>5</sup></code></li>
+	<li><code>0 &lt;= fruits[i] &lt; fruits.length</code></li>
+</ul>
+</div><div>class Solution {
+public:
+    int totalFruit(vector<int>& fruits) {
+        
+    }
+};</div><p style="page-break-before: always" ></p><div><h2>Permutation in String</h2><p>Given two strings <code>s1</code> and <code>s2</code>, return <code>true</code> if <code>s2</code> contains a <span data-keyword="permutation-string">permutation</span> of <code>s1</code>, or <code>false</code> otherwise.</p>
+
+<p>In other words, return <code>true</code> if one of <code>s1</code>&#39;s permutations is the substring of <code>s2</code>.</p>
+
+<p>&nbsp;</p>
+<p><strong class="example">Example 1:</strong></p>
+
+<pre>
+<strong>Input:</strong> s1 = &quot;ab&quot;, s2 = &quot;eidbaooo&quot;
+<strong>Output:</strong> true
+<strong>Explanation:</strong> s2 contains one permutation of s1 (&quot;ba&quot;).
+</pre>
+
+<p><strong class="example">Example 2:</strong></p>
+
+<pre>
+<strong>Input:</strong> s1 = &quot;ab&quot;, s2 = &quot;eidboaoo&quot;
+<strong>Output:</strong> false
+</pre>
+
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
+
+<ul>
+	<li><code>1 &lt;= s1.length, s2.length &lt;= 10<sup>4</sup></code></li>
+	<li><code>s1</code> and <code>s2</code> consist of lowercase English letters.</li>
+</ul>
+</div><div>class Solution {
+public:
+    bool checkInclusion(string s1, string s2) {
+        
+    }
+};</div><p style="page-break-before: always" ></p>

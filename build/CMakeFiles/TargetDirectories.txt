@@ -1,0 +1,3 @@
+/home/ssk/repos/weekly-DSA/build/CMakeFiles/learn.dir
+/home/ssk/repos/weekly-DSA/build/CMakeFiles/edit_cache.dir
+/home/ssk/repos/weekly-DSA/build/CMakeFiles/rebuild_cache.dir

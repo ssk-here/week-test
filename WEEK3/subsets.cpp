@@ -18,6 +18,35 @@ public:
     }
 };
 // write gtests here
+TEST(SubsetsTest, EmptyInput) {
+    Solution solution;
+    vector<int> nums = {};
+    vector<vector<int>> expected = {{}};
+    EXPECT_EQ(solution.subsets(nums), expected);
+}
+
+TEST(SubsetsTest, SingleElement) {
+    Solution solution;
+    vector<int> nums = {1};
+    vector<vector<int>> expected = {{}, {1}};
+    EXPECT_EQ(solution.subsets(nums), expected);
+}
+
+TEST(SubsetsTest, TwoElements) {
+    Solution solution;
+    vector<int> nums = {1, 2};
+    vector<vector<int>> expected = {{}, {1}, {2}, {1, 2}};
+    EXPECT_EQ(solution.subsets(nums), expected);
+}
+
+TEST(SubsetsTest, ThreeElements) {
+    Solution solution;
+    vector<int> nums = {1, 2, 3};
+    vector<vector<int>> expected = {{}, {1}, {2}, {3}, {1, 2}, {1, 3}, {2, 3}, {1, 2, 3}};
+    EXPECT_EQ(solution.subsets(nums), expected);
+}
+
+
 int main() {
 ::testing::InitGoogleTest();
 return RUN_ALL_TESTS();
